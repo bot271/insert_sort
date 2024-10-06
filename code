@@ -1,0 +1,28 @@
+#include <iostream>
+
+template<typename T>
+void insert(T *, int, T);
+template<typename T>
+void insertSort(T *, int);
+
+template<typename T>
+void insert(T * a, int n, T x)
+{
+    for (int i = n - 1; i >= 0; --i)
+    {
+        if (a[i] <= x)
+        {
+            a[i + 1] = x;
+            return;
+        }
+        a[i + 1] = a[i];
+    }
+    a[0] = x;
+}
+
+template<typename T>
+void insertSort(T * a, int n)
+{
+    for (int i = 1; i < n; ++i)
+        insert(a, i, a[i]);
+}
